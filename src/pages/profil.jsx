@@ -1,27 +1,16 @@
 import React, { useState } from 'react';
-// import '.../STyleAll.css';
 import { useDispatch, useSelector } from 'react-redux';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { FaBell, FaGlobeAmericas } from 'react-icons/fa';
 import { IoMdListBox } from 'react-icons/io';
 import { BsTranslate } from 'react-icons/bs';
-// import '../Home/css/Styleaside.css';
 
-// import '../Home/assets/dropdown/js/navbar-dropdown';
-
-// import '../Home/assets/dropdown/css/style.css';
 import { Helmet } from 'react-helmet';
 
-// import '../Home/assets/mobirise/css/mbr-additional.css'
+
 import { useHistory } from 'react-router-dom';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'font-awesome/css/font-awesome.min.css';
-
-
-// import { Sidebar } from "flowbite-react";
-// import { HiArrowSmRight, HiChartPie, HiInbox, HiShoppingBag, HiTable, HiUser } from "react-icons/hi";
 import { CgAdd } from 'react-icons/cg';
 import { CiCircleCheck } from 'react-icons/ci';
 import { BootstrapIcons } from 'react-bootstrap-icons';
@@ -41,83 +30,19 @@ import {
 } from "react-icons/hi";
 import { twMerge } from "tailwind-merge";
 
+
+
+
+
 function ProfilStudent(props) {
     return (
         <div className='countainer'>
-            {/* <Navi/> */}
-            <Header />
+            <Main />
 
         </div>
     );
 }
 
-
-function Header(props) {
-    const [toggel, setToggel] = useState('sidenav');
-    const [toggeliD, settoggeliD] = useState('content');
-
-
-    const open = () => {
-        setToggel('sidenav-open');
-        settoggeliD('content-open')
-    };
-
-    const close = () => {
-        setToggel('sidenav');
-        settoggeliD('content')
-    };
-
-    return (
-        <>
-            <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-            <header data-bs-version="5.1" class="menu menu2 cid-sFCw1qGFAI" once="menu" id="menu2-23">
-
-                <nav class="navbar navbar-dropdown navbar-fixed-top navbar-expand-lg">
-                    <div class="container-fluid">
-                        <div class="navbar-brand">
-                            <button type="button" id="sidebarCollapse" >
-                                {toggel === 'sidenav' ? (
-                                    <span style={{ fontSize: '30px', cursor: 'pointer' }} id="toggel" onClick={open}>☰</span>
-                                ) : (
-                                    <span style={{ fontSize: '30px', cursor: 'pointer' }} id="toggel" onClick={close}>☰</span>
-                                )}
-                            </button>
-                            <span class="navbar-logoB">
-                                <a href="">
-                                    <img src="/images/min-logo-81x69.png" alt="Mobirise Website Builder" style={{ height: "4.5rem;" }} />
-                                </a>
-                            </span>
-                        </div>
-
-                        <div class="mr-3" id="navbarSupportedContent">
-                            <div class="icons-menu">
-                                {/* <a class="iconfont-wrapper mr-3" href="#" target="_blank"> */}
-                                <a class="iconfont-wrapper mr-3" href="#" target="_blank">
-                                    <FaBell />
-                                </a>
-                                <a class="iconfont-wrapper mr-3" href="#" target="_blank">
-                                    <IoMdListBox />
-                                </a>
-                                {/* Langues */}
-                                <div class="frere">
-                                    <FaGlobeAmericas color='black' />
-                                    <select name="" class="Langue">
-                                        <option value="en">EN</option>
-                                        <option value="fra">FRA</option>
-                                    </select>
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
-                </nav>
-            </header>
-
-            <Main class={toggel} idd={toggeliD} />
-            {/* <ProfileWithData/> */}
-        </>
-    );
-}
 
 
 function Main(props) {
@@ -130,12 +55,7 @@ function Main(props) {
 
     return (
         <main id='contentAll' >
-            <aside id="mySidenav" className={props.class}>
-
-
-
-
-            </aside>
+            <link rel="preload" href="https://fonts.googleapis.com/css?family=Jost:100,200,300,400,500,600,700,800,900,100i,200i,300i,400i,500i,600i,700i,800i,900i&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
             <ProfileWithData />
             {/* <section id={props.idd} className="content-section p-4 p-md-5 pt-5">
             
@@ -143,11 +63,6 @@ function Main(props) {
         </main>
     );
 }
-
-
-
-
-
 
 // Profill
 const ProfileWithData = () => {
@@ -272,51 +187,14 @@ function DynamicTabs() {
                     <ProfileWithEdit />
                 </Tab>
 
-                <Tab eventKey="menu2" title="Menu 2">
+                {/* <Tab eventKey="menu2" title="Menu 2">
                     <h3>Menu 2</h3>
-                    <Sidebar aria-label="Sidebar with multi-level dropdown example">
-                        <Sidebar.Items>
-                            <Sidebar.ItemGroup>
-                                <Sidebar.Item href="#" icon={HiChartPie}>
-                                    Dashboard
-                                </Sidebar.Item>
-                                <Sidebar.Collapse
-                                    icon={HiShoppingBag}
-                                    label="E-commerce"
-                                    renderChevronIcon={(theme, open) => {
-                                        const IconComponent = open ? HiOutlineMinusSm : HiOutlinePlusSm;
 
-                                        return <IconComponent aria-hidden className={twMerge(theme.label.icon.open[open ? 'on' : 'off'])} />;
-                                    }}
-                                >
-                                    <Sidebar.Item href="#">Products</Sidebar.Item>
-                                    <Sidebar.Item href="#">Sales</Sidebar.Item>
-                                    <Sidebar.Item href="#">Refunds</Sidebar.Item>
-                                    <Sidebar.Item href="#">Shipping</Sidebar.Item>
-                                </Sidebar.Collapse>
-                                <Sidebar.Item href="#" icon={HiInbox}>
-                                    Inbox
-                                </Sidebar.Item>
-                                <Sidebar.Item href="#" icon={HiUser}>
-                                    Users
-                                </Sidebar.Item>
-                                <Sidebar.Item href="#" icon={HiShoppingBag}>
-                                    Products
-                                </Sidebar.Item>
-                                <Sidebar.Item href="#" icon={HiArrowSmRight}>
-                                    Sign In
-                                </Sidebar.Item>
-                                <Sidebar.Item href="#" icon={HiTable}>
-                                    Sign Up
-                                </Sidebar.Item>
-                            </Sidebar.ItemGroup>
-                        </Sidebar.Items>
-                    </Sidebar>
                 </Tab>
                 <Tab eventKey="menu3" title="Menu 3">
                     <h3>Menu 3</h3>
                     <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-                </Tab>
+                </Tab> */}
             </Tabs>
         </div>
     );

@@ -1,145 +1,315 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { AiFillFileImage } from 'react-icons/ai';
+import { MdCloudUpload, MdDelete } from 'react-icons/md';
+
 
 
 function CreatePost(params) {
+    const [img, setImg] = useState([]);
+    const [filName, setFilName] = useState('No Selected file');
+    const [selectedFiles, setSelectedFiles] = useState([]);
+
+    const handleFileChange = ({ target: { files } }) => {
+        const newFiles = Array.from(files).slice(0, 3); // Limit to 3 files
+        setSelectedFiles(newFiles);
+        setFilName(newFiles[0].name); // Update file name display
+        if (newFiles.length > 0) {
+            setImg([...img, URL.createObjectURL(newFiles[0])]); // Display first selected image
+        }
+    };
+
     return (
         <>
             <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
-            <div class="">
-                <hr class="mt-0 mb-4" />
-                <div class="row">
-                    <div class="col-xl-8">
-
-                        <div class="card mb-4" id="cardP">
-                            <div class="card-header" id="card-headerP" >Create Post <span></span></div>
-                            <div class="card-body" id="">
+            <div className="container">
+                <hr className="" />
+                <div className="">
+                    <div>
+                        <div className="card mb-4" id="cardP">
+                            <div className="card-header" id="card-headerP">Create Post <span></span></div>
+                            <div className="card-body" id="">
                                 <form>
-
-                                    <div class="mb-3">
-                                        <label class="small mb-1" for="inputUsername">
-                                            Title
-                                        </label>
-                                        <input class="form-control" id="inputUsername form-controlP" type="text"
-                                            placeholder="Enter your username" value="" />
+                                    <div className="row gx-3 mb-3">
+                                        {/* Title */}
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputUsername">
+                                                Title
+                                            </label>
+                                            <input className="form-control" id="inputUsername form-controlP" type="text"
+                                                placeholder="Enter your username" value="" />
+                                        </div>
+                                        {/* name Company   */}
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputOrgName"> name Company  </label>
+                                            <input className="form-control" id="inputOrgName form-controlP" type="text"
+                                                placeholder="Enter your organization name" value="" />
+                                        </div>
                                     </div>
 
-                                    <div class="row gx-3 mb-3">
+                                    <div className="row gx-3 mb-3">
 
-                                        <div class="col-md-6">
+                                        {/*type  */}
+                                        <div className="col-md-6">
                                             <div>
-                                                <label class="small mb-1" for="inputLastName">type</label>
-                                                {/* <input  type="text"
-                                                    placeholder="Enter your last name" value="Luna" /> */}
-                                                <select class="form-control" id="inputLastName form-controlP"                                            >
+                                                <label className="small mb-1" htmlFor="inputLastName">type</label>
+                                                <select className="form-control" id="inputLastName form-controlP">
                                                     <option></option>
                                                     <option>Home</option>
                                                     <option>Job</option>
                                                     <option>Food</option>
                                                 </select>
-                                            </div>  
-                                            {/* <!-- component --> */}
-                                            {/* <div>
-                                                <label class="block mb-2 text-sm font-medium text-zinc-900">Image Upload</label>
-                                                <div class="flex items-center justify-center w-full">
-                                                    <label
-                                                        class="flex flex-col border-4 border-dashed w-full h-32 hover:bg-zinc-100 hover:border-zinc-300 group"
-                                                    >
-                                                        <div class="flex flex-col items-center justify-center pt-7">
-                                                            <svg
-                                                                class=" text-zinc-400 group-hover:text-zinc-600"
-                                                                style={{width:'70px;'}}
-                                                                fill="none"
-                                                                stroke="currentColor"
-                                                                viewBox="0 0 24 24"
-                                                                xmlns="http://www.w3.org/2000/svg"
-                                                            >
-                                                                <path
-                                                                    stroke-linecap="round"
-                                                                    stroke-linejoin="round"
-                                                                    stroke-width="2"
-                                                                    d="M7 16V4a2 2 0 012-2h6a2 2 0 012 2v12m-3 5h-4m4 0a2 2 0 002-2v-1a2 2 0 00-2-2h-4a2 2 0 00-2 2v1a2 2 0 002 2m4 0v-1m0 1H9m0 0V4m0 16v-1"
-                                                                ></path>
-                                                            </svg>
-                                                            <p
-                                                                class="lowercase text-sm text-zinc-400 group-hover:text-zinc-600 pt-1 tracking-wider"
-                                                            >
-                                                                Click to upload image
-                                                            </p>
-                                                        </div>
-                                                        <input type="file" class="hidden" />
-                                                    </label>
-                                                </div>
-                                            </div> */}
-                                        
+                                            </div>
+                                        </div>
+                                        {/* Location */}
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputLocation">Location</label>
+                                            <input className="form-control" id="inputLocation" type="text"
+                                                placeholder="Enter your location" value="" />
+                                        </div>
+                                        {/* Adress */}
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputOrgName"> Adress  </label>
+                                            <input className="form-control" id="inputOrgName form-controlP" type="text"
+                                                placeholder="Enter your secende Adress" value="" />
+                                        </div>
+                                        {/* secende Adress */}
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputOrgName"> secende Adress  </label>
+                                            <input className="form-control" id="inputOrgName form-controlP" type="text"
+                                                placeholder="Enter your Adress" value="" />
+                                        </div>
+                                    </div>
+                                    {/* Title */}
 
-                                        {/* <div>
-                                            <label class="small mb-1" for="inputLastName">type</label>
-                                            <input class="form-control" id="inputLastName form-controlP" type="tel"
+
+
+                                    <div className="row gx-3 mb-3">
+
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputPhone">Phone number</label>
+                                            <input className="form-control" id="inputPhone form-controlP" type="tel"
                                                 placeholder="+212 6" value="" />
-                                        </div> */}
+                                        </div>
+
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputEmailAddress">Email address</label>
+                                            <input className="form-control" id="inputEmailAddress form-controlP" type="email"
+                                                placeholder="Enter your email address" value="" />
+                                        </div>
+                                    </div>
+
+
+                                    <div className="row gx-3 mb-3">
+
+                                        {/* Description */}
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputUsername">
+                                                Description
+                                            </label>
+                                            <textarea className="form-control" id="inputFirstName form-controlP" type=""
+                                                placeholder="Description de Service" value="" 
+                                                style={{height:'150px' , resize:'none'}}
+                                                />
+                                        </div>
+
+                                        {/* image */}
+                                        <div className='col-md-6'>
+                                            <div className="d-flex cursor-pointer rounded "
+                                                style={{ border: "2px dashed #d5d5fd", justifyContent: 'center', alignItems: 'center', marginTop: '28px', padding: '6px', height: '100px'}}
+                                                onClick={() => document.querySelector('.inputClick').click()}
+                                            >
+                                                <input type="file" accept='image/*' className='inputClick' name="" id="" multiple hidden onChange={handleFileChange} />
+                                                {img.length ? img.slice(0, 3).map(el => (
+                                                    <img src={el} height={100} style={{ width: 'auto' }} alt={filName} />))
+                                                    :
+                                                    <MdCloudUpload color='#d5d5fd' size={65} />
+                                                }
+                                            </div>
+                                            <div className='d-flex justify-content-between align-items-center ' style={{backgroundColor:' #e9f0ff' , borderRadius: '5px', marginTop:'5px', padding:'10px 20px'}}>
+                                                <AiFillFileImage color='#1474cFf'/>
+                                                <span>{filName}</span>
+                                                <MdDelete onClick={()=>{
+                                                    setFilName("No select File")
+                                                    setImg([])
+                                                    setSelectedFiles([])
+                                                    setFilName([])
+                                                    console.log(...selectedFiles)
+                                                    
+                                                }}/>
+                                            </div>
+                                        </div>
+                                        </div>
+
+
+                                    {/* image */}
+                                    <div className="col-md-3 d-flex cursor-pointer rounded "
+                                        style={{ border: "2px dashed #d5d5fd", justifyContent: 'center', alignItems: 'center', marginTop: '28px', padding: '6px', width: ' 49.5%' }}
+                                        onClick={() => document.querySelector('.inputClick').click()}
+                                    >
+                                        <input type="file" accept='image/*' className='inputClick' name="" id="" multiple hidden onChange={handleFileChange} />
+                                        {img.length ? img.slice(0, 3).map(el => (
+                                            <img src={el} height={25} style={{ width: 'auto' }} alt={filName} />))
+                                            :
+                                            <MdCloudUpload color='#d5d5fd' size={28} />
+                                        }
 
                                     </div>
-                                    <div class="col-md-6">
-                                        <label class="small mb-1" for="inputFirstName">Description</label>
-                                        <textarea class="form-control" id="inputFirstName form-controlP" type=""
-                                            placeholder="Description de Service" value="" />
-
-                                    </div>
+                                    <button className="btn btn-primary" type="button">Create</button>
+                                </form>
                             </div>
-
-                            <div class="row gx-3 mb-3">
-
-                                <div class="col-md-6">
-                                    <label class="small mb-1" for="inputOrgName"> name Company  </label>
-                                    <input class="form-control" id="inputOrgName form-controlP" type="text"
-                                        placeholder="Enter your organization name" value="" />
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label class="small mb-1" for="inputLocation">Location</label>
-                                    <input class="form-control" id="inputLocation" type="text"
-                                        placeholder="Enter your location" value="" />
-                                </div>
-                            </div>
-
-                            {/* <div class="mb-3">
-                                <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                                <input class="form-control" id="inputEmailAddress form-controlP" type="email"
-                                    placeholder="Enter your email address" value="name@example.com" />
-                            </div> */}
-
-                            <div class="row gx-3 mb-3">
-
-                                <div class="col-md-6">
-                                    <label class="small mb-1" for="inputPhone">Phone number</label>
-                                    <input class="form-control" id="inputPhone form-controlP" type="tel"
-                                        placeholder="+212 6" value="" />
-                                </div>
-
-                                <div class="col-md-6">
-                                    <label class="small mb-1" for="inputEmailAddress">Email address</label>
-                                    <input class="form-control" id="inputEmailAddress form-controlP" type="email"
-                                        placeholder="Enter your email address" value="" />
-                                </div>
-                            </div>
-                            
-                            <div class="row gx-3 mb-3">
-
-                            {/* <!-- component --> */}
-                                
-
-                            </div>
-
-                            <button class="btn btn-primary" type="button">Save changes</button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div >
-            </div >
         </>
     );
 }
 
 
-export default CreatePost;
+function UpdatePost(params) {
+    const [img, setImg] = useState([]);
+    const [filName, setFilName] = useState('No Selected file');
+    const [selectedFiles, setSelectedFiles] = useState([]);
+
+    const handleFileChange = ({ target: { files } }) => {
+        const newFiles = Array.from(files).slice(0, 3); // Limit to 3 files
+        setSelectedFiles(newFiles);
+        setFilName(newFiles[0].name); // Update file name display
+        if (newFiles.length > 0) {
+            setImg([...img, URL.createObjectURL(newFiles[0])]); // Display first selected image
+        }
+    };
+
+    return (
+        <>
+            <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+            <div className="container">
+                <hr className="" />
+                <div className="">
+                    <div>
+                        <div className="card mb-4" id="cardP">
+                            <div className="card-header" id="card-headerP">Update Post <span></span></div>
+                            <div className="card-body" id="">
+                                <form>
+                                    <div className="row gx-3 mb-3">
+                                        {/* Title */}
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputUsername">
+                                                Title
+                                            </label>
+                                            <input className="form-control" id="inputUsername form-controlP" type="text"
+                                                placeholder="Enter your username" value="" />
+                                        </div>
+                                        {/* name Company   */}
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputOrgName"> name Company  </label>
+                                            <input className="form-control" id="inputOrgName form-controlP" type="text"
+                                                placeholder="Enter your organization name" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div className="row gx-3 mb-3">
+
+                                        {/*type  */}
+                                        <div className="col-md-6">
+                                            <div>
+                                                <label className="small mb-1" htmlFor="inputLastName">type</label>
+                                                <select className="form-control" id="inputLastName form-controlP">
+                                                    <option></option>
+                                                    <option>Home</option>
+                                                    <option>Job</option>
+                                                    <option>Food</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        {/* Location */}
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputLocation">Location</label>
+                                            <input className="form-control" id="inputLocation" type="text"
+                                                placeholder="Enter your location" value="" />
+                                        </div>
+                                        {/* Adress */}
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputOrgName"> Adress  </label>
+                                            <input className="form-control" id="inputOrgName form-controlP" type="text"
+                                                placeholder="Enter your secende Adress" value="" />
+                                        </div>
+                                        {/* secende Adress */}
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputOrgName"> secende Adress  </label>
+                                            <input className="form-control" id="inputOrgName form-controlP" type="text"
+                                                placeholder="Enter your Adress" value="" />
+                                        </div>
+                                    </div>
+                                    {/* Title */}
+
+
+
+                                    <div className="row gx-3 mb-3">
+
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputPhone">Phone number</label>
+                                            <input className="form-control" id="inputPhone form-controlP" type="tel"
+                                                placeholder="+212 6" value="" />
+                                        </div>
+
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputEmailAddress">Email address</label>
+                                            <input className="form-control" id="inputEmailAddress form-controlP" type="email"
+                                                placeholder="Enter your email address" value="" />
+                                        </div>
+                                    </div>
+
+
+                                    <div className="row gx-3 mb-3">
+
+                                        {/* Description */}
+                                        <div className="col-md-6">
+                                            <label className="small mb-1" htmlFor="inputUsername">
+                                                Description
+                                            </label>
+                                            <textarea className="form-control" id="inputFirstName form-controlP" type=""
+                                                placeholder="Description de Service" value="" 
+                                                style={{height:'150px' , resize:'none'}}
+                                                />
+                                        </div>
+
+                                        {/* image */}
+                                        <div className="col-md-3 d-flex cursor-pointer rounded "
+                                            style={{ border: "2px dashed #d5d5fd", justifyContent: 'center', alignItems: 'center', marginTop: '28px', padding: '6px', width: ' 49.5%', height: '150px'}}
+                                            onClick={() => document.querySelector('.inputClick').click()}
+                                        >
+                                            <input type="file" accept='image/*' className='inputClick' name="" id="" multiple hidden onChange={handleFileChange} />
+                                            {img.length ? img.slice(0, 3).map(el => (
+                                                <img src={el} height={150} style={{ width: 'auto' }} alt={filName} />))
+                                                :
+                                                <MdCloudUpload color='#d5d5fd' size={65} />
+                                            }
+
+                                        </div>
+                                    </div>
+
+                                    {/* image */}
+                                    <div className="col-md-3 d-flex cursor-pointer rounded "
+                                        style={{ border: "2px dashed #d5d5fd", justifyContent: 'center', alignItems: 'center', marginTop: '28px', padding: '6px', width: ' 49.5%' }}
+                                        onClick={() => document.querySelector('.inputClick').click()}
+                                    >
+                                        <input type="file" accept='image/*' className='inputClick' name="" id="" multiple hidden onChange={handleFileChange} />
+                                        {img.length ? img.slice(0, 3).map(el => (
+                                            <img src={el} height={25} style={{ width: 'auto' }} alt={filName} />))
+                                            :
+                                            <MdCloudUpload color='#d5d5fd' size={28} />
+                                        }
+
+                                    </div>
+                                    <button className="btn btn-primary" type="button">Save Update</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </>
+    );
+}
+export  {CreatePost , UpdatePost};

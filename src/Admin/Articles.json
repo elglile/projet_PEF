@@ -1,0 +1,32 @@
+[
+    {
+        "id":1,
+        "ImgUrl":"./imgs/téléchargement.jpeg",
+        "title":"mcdonald",
+        "price":30
+    },
+    
+    {
+        "id":2,
+        "ImgUrl":"./imgs/téléchargement2.jpeg",
+        "title":"Plat mcdonald",
+        "price":50
+    },
+    {
+        "id":3,
+        "ImgUrl":"./imgs/téléchargement3.jpeg",
+        "title":"Pack mcdonald",
+        "price":40
+    },
+    {
+        "id":4,
+        "ImgUrl":"./imgs/telechargement4.jpeg",
+        "title":"Travail pour etudiants",
+        "price":2500
+    },    {
+        "id":5,
+        "ImgUrl":"./imgs/téléchargement5.jpeg",
+        "title":"Travail pour les files",
+        "price":2000
+    }
+]

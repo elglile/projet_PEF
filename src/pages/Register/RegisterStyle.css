@@ -1,5 +1,36 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+    :root {
+        --color1: #007bff;
+        --inputcolor1: #eee;
 
+        --indigo: #6610f2;
+        --purple: #6f42c1;
+        --pink: #e83e8c;
+        --red: #dc3545;
+        --orange: #fd7e14;
+        --yellow: #ffc107;
+        --green: #28a745;
+        --teal: #20c997;
+        --cyan: #17a2b8;
+        --white: #fff;
+        --gray: #6c757d;
+        --gray-dark: #343a40;
+        --primary: #007bff;
+        --secondary: #6c757d;
+        --success: #28a745;
+        --info: #17a2b8;
+        --warning: #ffc107;
+        --danger: #dc3545;
+        --color2: #f8f9fa;
+        --dark: #343a40;
+        --breakpoint-xs: 0;
+        --breakpoint-sm: 576px;
+        --breakpoint-md: 768px;
+        --breakpoint-lg: 992px;
+        --breakpoint-xl: 1200px;
+        --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+        --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+    }
     .body {
         margin: 0;
         padding: 0;
@@ -8,8 +39,8 @@
     }
 
     .body {
-        background-color: #c9d6ff;
-        background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+        /* background-color: aliceblue; */
+        background: linear-gradient(to right, #e2e2e2, aliceblue);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -17,38 +48,37 @@
         height: 100vh;
     }
 
-
-    .containerReg {
-        background-color: #fff;
-        border-radius: 30px;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
-        position: relative;
-        overflow: hidden;
-        width: 768px;
-        max-width: 100%;
-        min-height: 480px;
+    #h1t{
+        font-size: 1.5rem;
     }
 
-    .containerReg p {
-        font-size: 14px;
-        line-height: 20px;
-        letter-spacing: 0.3px;
-        margin: 20px 0;
-    }
 
-    .containerReg span {
+    /* first-aside */
+.containerReg form {
+        background-color: var(--color2);
+        /* background-color: red; */
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 0 40px;
+        height: 100%;
+    }
+.containerReg span {
+        /* background-color: red; */
         font-size: 12px;
     }
-
     .containerReg a {
+        /* background-color: red; */
         color: #333;
         font-size: 13px;
         text-decoration: none;
         margin: 15px 0 10px;
     }
-
     .containerReg .Reg {
-        background-color: #512da8;
+        /* background-color: red; */
+        background-color: var(--color1);
         color: #fff;
         font-size: 12px;
         padding: 10px 45px;
@@ -60,10 +90,83 @@
         margin-top: 10px;
         cursor: pointer;
     }
+    .containerReg input:not(input[type="radio"]) {
+        background-color: var(--inputcolor1);
+        /* background-color: red; */
 
+        border: none;
+        margin: 8px 0;
+        padding: 10px 15px;
+        font-size: 13px;
+        border-radius: 8px;
+        width: 100%;
+        outline: none;
+
+        
+    }
+    .containerReg input[type="radio"]{
+        margin-top: 7px;
+        height: 11px;
+    }
+    .form-containerReg {
+        /* background-color: red; */
+        position: absolute;
+        top: 0;
+        height: 100%;
+        transition: all 0.6s ease-in-out;
+    }
+
+    .sign-inReg {
+        /* background-color: red; */
+
+    left: 0;
+    width: 50%;
+    z-index: 2;
+}
+.social-iconsReg {
+    margin: 20px 0;
+}
+
+.social-iconsReg a {
+    border: 1px solid #ccc;
+    border-radius: 20%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 3px;
+    width: 40px;
+    height: 40px;
+}
+
+
+
+
+
+
+
+    /* seconde-side */
+    .containerReg {
+        background-color: var(--color2);
+        border-radius: 20px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+        position: relative;
+        overflow: hidden;
+        width: 768px;
+        max-width: 100%;
+        min-height: 480px;
+    }
+    
+    .containerReg p {
+        /* background-color: red; */
+        font-size: 14px;
+        line-height: 20px;
+        letter-spacing: 0.3px;
+        margin: 20px 0;
+    }
+    
     .hiddenReg {
         background-color: transparent;
-        border-color: #ffffff;
+        border:2px solid #ffffff;
         color: red;
 
         /* background-color: #512da8; */
@@ -78,43 +181,17 @@
         margin-top: 10px;
         cursor: pointer;
     }
+/*  */
 
-    .containerReg form {
-        background-color: #fff;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        padding: 0 40px;
-        height: 100%;
-    }
 
-    .containerReg input {
-        background-color: #eee;
-        border: none;
-        margin: 8px 0;
-        padding: 10px 15px;
-        font-size: 13px;
-        border-radius: 8px;
-        width: 100%;
-        outline: none;
-    }
 
-    .form-containerReg {
-        position: absolute;
-        top: 0;
-        height: 100%;
-        transition: all 0.6s ease-in-out;
-    }
 
-    .sign-inReg {
-        left: 0;
-        width: 50%;
-        z-index: 2;
-    }
+
+
 
     .containerReg.active .sign-inReg {
-        transform: translateX(100%);
+        transform: translateX(100%);   
+
     }
 
     .sign-upReg {
@@ -146,20 +223,6 @@
         }
     }
 
-    .social-iconsReg {
-        margin: 20px 0;
-    }
-
-    .social-iconsReg a {
-        border: 1px solid #ccc;
-        border-radius: 20%;
-        display: inline-flex;
-        justify-content: center;
-        align-items: center;
-        margin: 0 3px;
-        width: 40px;
-        height: 40px;
-    }
 
     .toggle-containerReg {
         position: absolute;
@@ -169,19 +232,19 @@
         height: 100%;
         overflow: hidden;
         transition: all 0.6s ease-in-out;
-        border-radius: 150px 0 0 100px;
+        border-radius: 0 0 0 50px;
         z-index: 1000;
     }
 
     .containerReg.active .toggle-containerReg {
         transform: translateX(-100%);
-        border-radius: 0 150px 100px 0;
+        border-radius: 0px 0 50px 0;
     }
 
     .toggleReg {
-        background-color: #512da8;
+        background-color: var(--color1);
         height: 100%;
-        background: linear-gradient(to right, #5c6bc0, #512da8);
+        background: linear-gradient(to right, #5c6bc0, var(--color1));
         color: #fff;
         position: relative;
         left: -100%;

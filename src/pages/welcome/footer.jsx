@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaFacebookF, FaLinkedinIn, FaTwitter } from 'react-icons/fa';
 
 /* rechercher dans fill mbr-additional.css pou le css :    v    <!-- ***** Footer Start ***** -->*/
 function Footer(props) {
@@ -9,7 +10,7 @@ function Footer(props) {
                 <div class="col-lg-3">
                     <div class="first-item">
                         <div class="logo">
-                            <img src="/images/min-logo-81x69.png" alt="hexashop ecommerce templatemo"/>
+                            <img src="/images/min-logo-81x69.png"style={{width:"30%" , padding:"10px"}} alt="hexashop ecommerce templatemo"/>
                         <a className=" text-white   text-decoration-none" >EasyStady</a>
                         </div>
                         <ul>
@@ -51,10 +52,10 @@ function Footer(props) {
                         
                         <br/>Design: <a href="https://templatemo.com" target="_parent" title="free css templates">TemplateMo</a></p>
                         <ul>
-                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                            <li><a href="#"><i class="fa fa-behance"></i></a></li>
+                                <li><a href="#"><FaFacebookF size={24} /></a></li>
+                                <li><a href="#"><FaTwitter size={24} /></a></li>
+                                <li><a href="#"><FaLinkedinIn size={24} /></a></li>
+                                {/* <li><a href="#"><i class="fa fa-behance"></i></a></li> */}
                         </ul>
                     </div>
                 </div>

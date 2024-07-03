@@ -1,0 +1,25 @@
+.divCom{
+    background-color: aqua;
+    width: 90%;
+    margin-left: 66px;
+    height: 500px;
+    overflow-x: auto;
+
+}
+.divCom-none{
+display: none;
+
+}
+.AddCom input{
+    width: 63%;
+}
+.AddCom #AddCom{
+    width: 8%;
+    border-radius: 50%;
+    background-color: aqua;
+
+}
+.close{
+    float: right;
+    padding-right: 10px;
+    cursor: context-menu;}

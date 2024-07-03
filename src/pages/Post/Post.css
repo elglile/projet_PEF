@@ -1,0 +1,48 @@
+#Post{
+    background-color:aliceblue;
+    height: 100%;
+    text-align: center;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+  }
+
+  input[type="radio"] {
+    display: none;
+  }
+  .details{
+/* margin-left: -47%; */
+  }
+
+  .Title{
+    text-align:left;
+    /* background-color: aqua; */
+    border-bottom: 1px black solid;
+    display: flex;
+  }
+.images{
+margin: 15px;
+  }
+  .images img:hover{
+    border: black 1px solid;
+  }
+  .para{
+    width: 500px;
+    margin: 0 auto; /* Center the element horizontally */
+    background-color: aqua;
+    text-align: center;
+  }
+  .contact{
+    background-color: rgb(24, 24, 23);
+    color: white;
+    text-decoration: solid;    
+  }
+
+  .section1{
+    display: flex;
+  }
+  .comments{
+width: 100%;
+  }

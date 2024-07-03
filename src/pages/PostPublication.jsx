@@ -9,40 +9,38 @@ import { MdOutlineStarHalf } from 'react-icons/md';
 
 import ReactDOM from 'react-dom';
 
+import { Carousel } from './components/Carousel'
+import { slides } from "./data/carouselData";
+
+
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs';
 import { RxDotFilled } from 'react-icons/rx';
 
 
-export default function PostPublication() {
-    return (<>
+// export default function PostPublication() {
+//     return (<>
+//         <Navbar/>
+//         <section class="section" id="product" style={{paddingBottom: '180px'}}>
+//             <div class="container">
+//                 <div class="row" style={{ justifyContent: 'space-between', paddingTop:"150px"}}>
+//                     <div class="col-lg-8">
+
+//                     </div>
+//                     <div class="col-lg-4">
+//                         <Cardd />
+//                     </div>
+//                 </div>
+//             </div>
+//         </section>
+//         <Footer/>
+
+//     </>
+//     );
+// }
 
 
 
-        <section class="section" id="product">
-            <div class="container">
-                <div class="row" style={{ justifyContent: 'space-between' }}>
-
-
-                    <div class="col-lg-8">
-                        <ImagesPub />
-                    </div>
-
-
-                    <div class="col-lg-4">
-                        <Cardd />
-                    </div>
-
-
-                </div>
-            </div>
-        </section>
-
-    </>
-    );
-}
-
-
-function Cardd(props) {
+function ServiceDetails(props) {
     const [isCircleCheck, setIsCircleCheck] = useState(true);
 
     const toggleIcon = () => {
@@ -50,126 +48,190 @@ function Cardd(props) {
     };
 
     const dispatch = useDispatch()
-    return (<>
-        <div class="right-content right-contentPub">
-            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-                <h4>Illustration</h4>
-                <div className="authorP" > By <span className="nameP" style={{}}>Abi</span> 4 days ago</div>
-            </div>
-            <div className='Reactionuser' style={{}}>
-                {/* <!-- j'aime --> */}
-                <label className="ui-bookmarkPP">
-                    <input type="checkbox" />
-                    <div className="bookmarkP">
-                        <svg viewBox="0 0 16 16" style={{}} className="bi bi-heart-fill" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" fill-rule="evenodd" ></path>
-                        </svg>
+    return (
+        <>
+            {/* <Navbar /> */}
+            <div className="container  mt-5">
+                <div /*className="container py-5"*/>
+                    <div className="row g-4 mb-5">
+                        <div className="col-lg-8 col-xl-9">
+                            <div className="row g-4">
+                                <div className="col-lg-6">
+                                    <div className="border rounded">
+                                        {/* <img src="./assets/images/glovo.png" className="img-fluid rounded" alt="Image" /> */}
+                                        <Carousel data={slides} />
+                                    </div>
+                                </div>
+                                <div className="col-lg-6">
+                                    <h4 className="fw-bold mb-3">GLovo</h4>
+                                    <p className="mb-3">Category: Food</p>
+                                    <h5 className="fw-bold mb-3">3,35 Dh</h5>
+                                    <div className="d-flex mb-4">
+                                        <i className="fa fa-star text-secondary" />
+                                        <i className="fa fa-star text-secondary" />
+                                        <i className="fa fa-star text-secondary" />
+                                        <i className="fa fa-star text-secondary" />
+                                        <i className="fa fa-star" />
+                                    </div>
+                                    <p className="mb-4">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.</p>
+                                    <p className="mb-4">Susp endisse ultricies nisi vel quam suscipit. Sabertooth peacock flounder; chain pickerel hatchetfish, pencilfish snailfish</p>
+                                    <div className='Reactionuser' style={{}}>
+                                        {/* <!-- j'aime --> */}
+                                        <label className="ui-bookmarkPP" style={{ margin:' 16px 0px' }}>
+                                            <input type="checkbox" />
+                                            <div className="bookmarkP">
+                                                <svg viewBox="0 0 16 16" style={{}} className="bi bi-heart-fill" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M8 1.314C12.438-3.248 23.534 4.735 8 15-7.534 4.736 3.562-3.248 8 1.314" fill-rule="evenodd" ></path>
+                                                </svg>
+                                            </div>
+                                        </label>
+                                        {/* <!-- Add --> */}
+                                        <div className='addicon'>
+                                            <a href="#" className="btn border border-secondary rounded-pill px-4 py-2 mb-4 text-primary"><i className="fa fa-shopping-bag me-2 text-primary" /> Add Service</a>
+                                        </div>
+                                        {/* PLus */}
+
+                                    </div>
+                                </div>
+                                <div className="col-lg-12">
+                                    <nav>
+                                        <div className="nav nav-tabs mb-3">
+                                            <button className="nav-link active border-white border-bottom-0" type="button" role="tab" id="nav-about-tab" data-bs-toggle="tab" data-bs-target="#nav-about" aria-controls="nav-about" aria-selected="true">Description</button>
+                                            <button className="nav-link border-white border-bottom-0" type="button" role="tab" id="nav-mission-tab" data-bs-toggle="tab" data-bs-target="#nav-mission" aria-controls="nav-mission" aria-selected="false">Reviews</button>
+                                        </div>
+                                    </nav>
+                                    <div className="tab-content mb-5">
+                                        <div className="tab-pane active" id="nav-about" role="tabpanel" aria-labelledby="nav-about-tab">
+                                            <p>The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic words etc.
+                                                Susp endisse ultricies nisi vel quam suscipit </p>
+                                            <p>Sabertooth peacock flounder; chain pickerel hatchetfish, pencilfish snailfish filefish Antarctic
+                                                icefish goldeye aholehole trumpetfish pilot fish airbreathing catfish, electric ray sweeper.</p>
+                                            <div className="px-2 ">
+                                                <div className="row ">
+                                                    <div className="col">
+                                                        <div className="row bg-light align-items-center text-center justify-content-center py-2">
+                                                            <div className="col">
+                                                                <p className="mb-0">Phone</p>
+                                                            </div>
+                                                            <div className="col">
+                                                                <p className="mb-0">+212670787800</p>
+                                                            </div>
+                                                        </div>
+                                                        <div className="row text-center align-items-center justify-content-center py-2">
+                                                            <div className="col">
+                                                                <p className="mb-0">Email</p>
+                                                            </div>
+                                                            <div className="col">
+                                                                <p className="mb-0">email@gmail.com</p>
+                                                            </div>
+                                                        </div>
+                                                        <div className="row bg-light text-center align-items-center justify-content-center py-2">
+                                                            <div className="col">
+                                                                <p className="mb-0">Address</p>
+                                                            </div>
+                                                            <div className="col">
+                                                                <p className="mb-0">elkhair,03 mars Settat</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="tab-pane" id="nav-mission" role="tabpanel" aria-labelledby="nav-mission-tab">
+                                            <div className="d-flex">
+                                                <img src="img/avatar.jpg" className="img-fluid rounded-circle p-3" style={{ width: 100, height: 100 }} alt />
+                                                <div className>
+                                                    <p className="mb-2" style={{ fontSize: 14 }}>April 12, 2024</p>
+                                                    <div className="d-flex justify-content-between">
+                                                        <h5>Jason Smith</h5>
+                                                        <div className="d-flex mb-3">
+                                                            <i className="fa fa-star text-secondary" />
+                                                            <i className="fa fa-star text-secondary" />
+                                                            <i className="fa fa-star text-secondary" />
+                                                            <i className="fa fa-star text-secondary" />
+                                                            <i className="fa fa-star" />
+                                                        </div>
+                                                    </div>
+                                                    <p>The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic
+                                                        words etc. Susp endisse ultricies nisi vel quam suscipit </p>
+                                                </div>
+                                            </div>
+                                            <div className="d-flex">
+                                                <img src="img/avatar.jpg" className="img-fluid rounded-circle p-3" style={{ width: 100, height: 100 }} alt />
+                                                <div className>
+                                                    <p className="mb-2" style={{ fontSize: 14 }}>April 12, 2024</p>
+                                                    <div className="d-flex justify-content-between">
+                                                        <h5>Sam Peters</h5>
+                                                        <div className="d-flex mb-3">
+                                                            <i className="fa fa-star text-secondary" />
+                                                            <i className="fa fa-star text-secondary" />
+                                                            <i className="fa fa-star text-secondary" />
+                                                            <i className="fa fa-star" />
+                                                            <i className="fa fa-star" />
+                                                        </div>
+                                                    </div>
+                                                    <p className="text-dark">The generated Lorem Ipsum is therefore always free from repetition injected humour, or non-characteristic
+                                                        words etc. Susp endisse ultricies nisi vel quam suscipit </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="tab-pane" id="nav-vision" role="tabpanel">
+                                            <p className="text-dark">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit. Aliqu diam
+                                                amet diam et eos labore. 3</p>
+                                            <p className="mb-0">Diam dolor diam ipsum et tempor sit. Aliqu diam amet diam et eos labore.
+                                                Clita erat ipsum et lorem et sit</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <form action="#">
+                                    <h4 className="mb-5 fw-bold">Leave a Reply</h4>
+                                    <div className="row g-4">
+                                        <div className="col-lg-6">
+                                            <div className="border-bottom rounded">
+                                                <input type="text" className="form-control border-0 me-4" placeholder="Yur Name *" />
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-6">
+                                            <div className="border-bottom rounded">
+                                                <input type="email" className="form-control border-0" placeholder="Your Email *" />
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-12">
+                                            <div className="border-bottom rounded my-4">
+                                                <textarea name id className="form-control border-0" cols={30} rows={8} placeholder="Your Review *" spellCheck="false" defaultValue={""} />
+                                            </div>
+                                        </div>
+                                        <div className="col-lg-12">
+                                            <div className="d-flex justify-content-between py-3 mb-5">
+                                                <div className="d-flex align-items-center">
+                                                    <p className="mb-0 me-3">Please rate:</p>
+                                                    <div className="d-flex align-items-center" style={{ fontSize: 12 }}>
+                                                        <i className="fa fa-star text-muted" />
+                                                        <i className="fa fa-star" />
+                                                        <i className="fa fa-star" />
+                                                        <i className="fa fa-star" />
+                                                        <i className="fa fa-star" />
+                                                    </div>
+                                                </div>
+                                                <a href="#" className="btn border border-secondary text-primary rounded-pill px-4 py-3"> Post Comment</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
-                </label>
-                {/* <!-- Add --> */}
-                <div className='addicon'>
-                    <span className='' style={{}} onClick={toggleIcon}>{isCircleCheck ? <CgAdd size={26} /> : <CiCircleCheck size={26} color="green" />}</span>
+
                 </div>
-                {/* PLus */}
-
             </div>
-            <span className='descriptionPub'>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem perferendis ducimus obcaecati doloremque molestias nihil animi provident deleniti iure ipsum aliquam illum quod corporis possimus aspernatur praesentium rerum, in ab!
-            </span>
-            <div class=" quantity-contentPub">
-                <Button><IoCallSharp /></Button>
-                <Button><MdOutlineStarHalf size={20} color='yellow' /></Button>
-                <Button>Go somewhere</Button>
-
-            </div>
-        </div>
-    </>
-    );
-
-}
-// function Cards() {
-//   const Posts = useSelector((data) => data.Post);
-//   const ToggelAside = useSelector((state) => state.ToggelAside);
-
-//   const mapping = Posts.map((el) => (
-//     <div id='' className={ToggelAside ? 'ccad side-sahow' : 'ccad'}>
-//       <Cardd img={el.photos[0]} title={el.title} desc={el.description} key={el.id} el={el} />
-//     </div>
-//   ));
-
-//   return (
-
-//     <div className='cardz'>{mapping}</div>
-
-
-//   );
-// }
-
-function ImagesPub() {
-    const slides = [
-        {
-            url: 'https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2620&q=80',
-        },
-        {
-            url: 'https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80',
-        },
-        {
-            url: 'https://images.unsplash.com/photo-1661961112951-f2bfd1f253ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2672&q=80',
-        },
-
-        {
-            url: 'https://images.unsplash.com/photo-1512756290469-ec264b7fbf87?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2253&q=80',
-        },
-        {
-            url: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2671&q=80',
-        },
-    ];
-
-    const [currentIndex, setCurrentIndex] = useState(0);
-
-    const prevSlide = () => {
-        const isFirstSlide = currentIndex === 0;
-        const newIndex = isFirstSlide ? slides.length - 1 : currentIndex - 1;
-        setCurrentIndex(newIndex);
-    };
-
-    const nextSlide = () => {
-        const isLastSlide = currentIndex === slides.length - 1;
-        const newIndex = isLastSlide ? 0 : currentIndex + 1;
-        setCurrentIndex(newIndex);
-    };
-
-    const goToSlide = (slideIndex) => {
-        setCurrentIndex(slideIndex);
-    };
-
-    return (<>
-
-<div className='max-w-[90vh] h-[80vh] w-full m-auto py-16 px-4 relative group'>
-            <div
-                style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-                className='w-full h-full rounded-2xl bg-center bg-cover duration-500'
-            ></div>
-            {/* Left Arrow */}
-            <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-                <BsChevronCompactLeft onClick={prevSlide} size={30} />
-            </div>
-            {/* Right Arrow */}
-            <div className='hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl rounded-full p-2 bg-black/20 text-white cursor-pointer'>
-                <BsChevronCompactRight onClick={nextSlide} size={30} />
-            </div>
-            <div className='flex top-4 justify-center py-2'>
-                {slides.map((slide, slideIndex) => (
-                    <div
-                        key={slideIndex}
-                        onClick={() => goToSlide(slideIndex)}
-                        className='text-2xl cursor-pointer'
-                    >
-                        <RxDotFilled />
-                    </div>
-                ))}
-            </div>
-        </div>	
         </>
     );
 }
+
+
+
+
+
+
+
+export default ServiceDetails;
